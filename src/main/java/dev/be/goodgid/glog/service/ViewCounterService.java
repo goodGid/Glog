@@ -1,10 +1,5 @@
 package dev.be.goodgid.glog.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import javax.swing.text.View;
-
 import org.springframework.stereotype.Service;
 
 import dev.be.goodgid.glog.controller.dto.ViewCountRequest;
@@ -23,9 +18,9 @@ public class ViewCounterService {
 
     public void IncreaseViewCount(ViewCountRequest viewCountRequest) {
 
-//        if (viewCountRequest.getAccessUrl().contains("localhost")) {
-//            return;
-//        }
+        if (viewCountRequest.getAccessUrl().contains("localhost")) {
+            return;
+        }
 
         Url url = urlRepository.findByUrlValue(viewCountRequest.getAccessUrl())
                                .orElseGet(() -> {
@@ -39,11 +34,6 @@ public class ViewCounterService {
                                        .url(url)
                                        .build();
         viewCounterRepository.save(viewCounter);
-
-        List<ViewCounter> viewCounterList = viewCounterRepository.findAll();
-        for (ViewCounter vc : viewCounterList){
-            System.out.println(vc);
-        }
     }
 
 }
