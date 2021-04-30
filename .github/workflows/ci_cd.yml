@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ] # push할 때 동작할 branch를 입력해주세요.
 env:
-  DOCKER_IMAGE: ghcr.io/goodGid/Glog # ex) ghcr.io/{Repository author}/{Repository name}
+  DOCKER_IMAGE: ghcr.io/goodGid/glog # ex) ghcr.io/{Repository author}/{Repository name}
   VERSION: ${{ github.sha }}
 
 jobs:
