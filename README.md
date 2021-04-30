@@ -1,1 +1,3 @@
 # Glog
+
+## Goal
